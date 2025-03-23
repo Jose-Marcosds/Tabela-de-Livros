@@ -1,0 +1,64 @@
+body {  /* Define o corpo da página.*/
+    font-family: Arial, sans-serif; /* Define a fonte padrão da página.*/
+    text-align: center; /* Centraliza o texto na página.*/
+    margin: 20px; /* Define a margem externa da página.*/
+    background-color: #f4f4f4; /* Define a cor de fundo da página.*/
+}
+
+button {  /* Define o estilo do botão.*/
+    padding: 10px 20px; /* Define o preenchimento do botão.*/
+    background-color: #007bff; /* Define a cor de fundo do botão.*/
+    color: white;   /* Define a cor do texto do botão.*/
+    border: none;   /* Remove a borda do botão.*/
+    cursor: pointer; /* Faz o cursor do mouse virar uma mãozinha ao passar sobre o botão.*/
+}
+
+button:hover {  /* Define o estilo do botão quando o mouse passa sobre ele.*/
+    background-color: #0056b3; /*Muda a cor de fundo do botão para um azul mais escuro quando o mouse passa sobre ele.*/
+}
+
+.modal { /* Define o estilo do modal.*/
+    display: none; /*  Começa escondendo o modal até que o JavaScript o ative.*/
+    position: fixed;   /* Fixa o modal na tela, para que ele não role junto com a página.*/
+    z-index: 1; /*Garante que o modal fique acima de todos os outros elementos da página.*/
+    left: 0; /*Posicionam o modal no canto superior esquerdo.*/
+    top: 0; /* lef e top juntos define a posição do canto superior esquerdo do modal.*/
+    width: 100%; /* Define a largura do modal.(Fazem o modal ocupar toda a tela)*/
+    height: 100%; /* Define a altura do modal.(Fazem o modal ocupar toda a tela)*/
+    background-color: rgba(0, 0, 0, 0.5); /*Adiciona um fundo semi-transparente escuro para destacar o modal.*/
+}
+
+.modal-content { /* Define o estilo do conteúdo do modal.*/
+    background-color: white; /* Define a cor de fundo do conteúdo do modal.*/
+    margin: 10% auto; /* Define a margem externa do conteúdo do modal.(Para centralizar o modal na tela.)*/
+    padding: 20px; /* Define o preenchimento interno do conteúdo do modal.(Adiciona espaço interno ao modal.)*/
+    border-radius: 5px; /* Define o arredondamento das bordas do conteúdo do modal.*/
+    width: 50%; /* Define a largura do conteúdo do modal.(Fazem o modal ocupar 50% da largura da tela.)*/
+    text-align: left; /* Alinha o texto a esquerda dentro do modal.*/
+}
+
+.fechar { /* Define o estilo do botão de fechar o modal.*/
+    float: right; /* Alinha o botão de fechar ao lado direito do modal.*/
+    font-size: 24px; /*  Aumenta o tamanho do "X" para facilitar o clique.*/
+    cursor: pointer; /* Faz o cursor do mouse virar uma mãozinha ao passar sobre o "X".*/
+}
+
+.fechar:hover { /* Define o estilo do botão de fechar o modal quando o mouse passa sobre ele.*/
+    color: red; /* Define a cor do "X" quando o mouse passa sobre ele.(Muda a cor do "X" para vermelho quando o mouse passa sobre ele.)*/
+}
+
+table { /* Define o estilo da tabela.*/
+    width: 100%; /* Define a largura da tabela.(Fazem a tabela ocupar toda a largura da tela.)*/
+    margin-top: 20px; /* Define a margem superior da tabela.(Adiciona espaçamento superior a partir do topo da tabela.)*/  
+    border-collapse: collapse; /* Define a colapse da borda da tabela.(Faz com que as bordas das celulas sejam unidas.)*/    
+}
+
+table, th, td { /* Define o estilo da tabela, das linhas e das celulas.*/
+    border: 1px solid black; /* Define a borda da tabela.(Adiciona uma borda preta de 1px.)*/
+}
+
+th, td { /* Define o estilo das linhas e das celulas.*/
+    padding: 10px; /* Define o preenchimento das celulas.(Adiciona espaçamento interno nas celulas.)*/
+    text-align: left; /* Alinha o texto a esquerda dentro das celulas.*/
+    background: white; /* Define a cor de fundo das celulas.*/
+}

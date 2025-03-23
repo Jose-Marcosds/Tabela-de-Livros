@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR"> <!-- Define o idioma da página.-->
+<head> 
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres utilizado na página.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a escala inicial da página para dispositivos móveis.-->
+    <title>Lista de Livros</title> <!-- Define o cabeçalho da página.-->
+    <link rel="stylesheet" href="style.css"> <!-- Inclui o arquivo CSS.-->
+</head>
+<body>
+    <header> <!--Define o cabeçalho da página.-->
+        <select id="ordenarPor"> <!--Define um menu de opções para ordenar os livros.-->
+            <option value="">Ordenar por...</option>
+            <option value="titulo">Título (A-Z)</option>
+            <option value="titulo-desc">Título (Z-A)</option>
+            <option value="autor">Autor (A-Z)</option>
+            <option value="autor-desc">Autor (Z-A)</option>
+            <option value="nota">Nota (Menor-Maior)</option>
+            <option value="nota-desc">Nota (Maior-Menor)</option>
+            <option value="paginas">Páginas (Menor-Maior)</option>
+            <option value="paginas-desc">Páginas (Maior-Menor)</option>
+        </select>
+    </header>
+    <h1>Minha Lista de Livros</h1> <!--Define o cabeçalho principal da página.-->
+    <button id="btnAdicionar">Adicionar Livro</button> <!--Define um botão para adicionar um livro.-->
+    <div id="modal" class="modal"> <!-- Criamos um modal(janela flutuante)para adicionar um livro.-->
+        <div class="modal-content"><!-- Define o conteúdo do modal.-->
+            <span class="fechar">&times;</span> <!-- Define um botão para fechar o modal.-->
+            <h2>Adicionar Livro</h2> <!-- Define o cabeçalho do modal.-->
+            <form id="form-livro"> <!-- Define o formulário para adicionar um livro.-->
+                <label for="titulo">Título:</label> <!-- Define uma etiqueta para o campo de título do livro.-->
+                <input type="text" id="titulo" required> <!-- Define um campo de texto para o título do livro.(required: Torna o preenchimento obrigatório.)-->
+                
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" required>
+                
+                <label for="inicio">Início da leitura:</label>
+                <input type="date" id="inicio" required>
+                
+                <label for="fim">Fim da leitura:</label>
+                <input type="date" id="fim" required>
+                
+                <label for="paginas">Número de páginas:</label>
+                <input type="number" id="paginas" required>
+                
+                <label for="pais">País:</label>
+                <input type="text" id="pais" required>
+                
+                <label for="nota">Nota (0-10):</label>
+                <input type="number" id="nota" step="0.1" min="0" max="10" required>
+                
+                <button type="submit">Salvar</button> <!-- Define um botão para salvar o livro.-->
+            </form>
+        </div>
+    </div>
+    <table> <!-- Define uma tabela para exibir a lista de livros.-->
+        <thead> <!-- Define o cabeçalho da tabela.-->
+            <tr> <!-- Define uma linha na tabela.-->
+                <th>Título</th> <!-- Define as cabeçalhos das colunas da tabela.-->
+                <th>Autor</th>
+                <th>Início</th>
+                <th>Fim</th>
+                <th>Páginas</th>
+                <th>País</th>
+                <th>Nota</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="lista-livros"></tbody> <!-- Parte do corpo da tabela onde os livros adicionados aparecerão dinamicamente via JavaScript.-->
+    </table>
+
+    <script src="script.js"></script> <!-- Inclui o arquivo JavaScript.-->
+</body>
+</html>

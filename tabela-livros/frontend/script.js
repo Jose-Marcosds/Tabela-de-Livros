@@ -48,8 +48,9 @@ function carregarLivros() { // Função para carregar os livros
                 livroItem.innerHTML = `
                     <td>${livro.titulo}</td> 
                     <td>${livro.autor}</td>
-                    <td>${livro.inicio}</td>
-                    <td>${livro.fim}</td>
+                    <td>${livro.genero}</td>
+                    <td>${formatarData(livro.inicio)}</td>
+                    <td>${formatarData(livro.fim)}</td>
                     <td>${livro.paginas}</td>
                     <td>${livro.pais}</td>
                     <td>${livro.nota}</td>
@@ -59,11 +60,19 @@ function carregarLivros() { // Função para carregar os livros
                     </td>
                 `;
                 listaLivros.appendChild(livroItem);// Adiciona a linha na tabela
+                function formatarData(data) {
+                    if (!data) return ""; // Evita erro caso a data esteja vazia
+                    let partes = data.split("-"); // Divide "AAAA-MM-DD"
+                    return `${partes[2]}/${partes[1]}/${partes[0]}`; // Retorna "DD/MM/AAAA"
+                }
+                
             });
         })
         .catch(error => console.error("Erro ao carregar os livros:", error));// Se houver algum erro, imprime no console
 }
-formLivro.addEventListener("submit", async function(event) {// Função para adicionar um livro
+const formLivro = document.getElementById("form-livro");
+
+formLivro.addEventListener("submit", async function(event) { // Função para adicionar um livro
     event.preventDefault();// Evita o comportamento padrão do formulário
 
     // Buscando a lista de livros para encontrar o próximo ID disponível
@@ -77,6 +86,7 @@ formLivro.addEventListener("submit", async function(event) {// Função para adi
         id: novoId, // Adicionando ID único manualmente
         titulo: document.getElementById("titulo").value,
         autor: document.getElementById("autor").value,
+        genero: document.getElementById("genero").value,
         inicio: document.getElementById("inicio").value,
         fim: document.getElementById("fim").value,
         paginas: document.getElementById("paginas").value,
@@ -120,6 +130,7 @@ function editarLivro(id) {// Função para editar um livro
         .then(livro => {// Preenche o formulário com os dados do livro
             document.getElementById("titulo").value = livro.titulo;
             document.getElementById("autor").value = livro.autor;
+            document.getElementById("genero").value = livro.genero;
             document.getElementById("inicio").value = livro.inicio;
             document.getElementById("fim").value = livro.fim;
             document.getElementById("paginas").value = livro.paginas;
@@ -134,6 +145,7 @@ function editarLivro(id) {// Função para editar um livro
                 const livroAtualizado = {// Objeto com os dados atualizados
                     titulo: document.getElementById("titulo").value,
                     autor: document.getElementById("autor").value,
+                    genero: document.getElementById("genero").value,
                     inicio: document.getElementById("inicio").value,
                     fim: document.getElementById("fim").value,
                     paginas: document.getElementById("paginas").value,
@@ -159,4 +171,5 @@ function editarLivro(id) {// Função para editar um livro
             };
         })
         .catch(error => console.error("Erro ao buscar livro para edição:", error));// Se houver algum erro, imprime no console
+
 }
